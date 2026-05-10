@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<title>QTline</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:300px;min-height:220px;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f0e2a;color:white}
+.hd{padding:18px 18px 14px;display:flex;align-items:center;gap:11px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.logo{width:38px;height:38px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#1e1b4b;display:flex;align-items:center;justify-content:center}
+.logo img{width:100%;height:100%;object-fit:contain}
+.hd-info{flex:1}
+.hd-name{font-size:16px;font-weight:700;color:#e0e7ff}
+.hd-sub{font-size:11px;color:#6366f1;margin-top:1px}
+.badge{font-size:10px;padding:3px 9px;border-radius:10px;background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.4);color:#6ee7b7;white-space:nowrap}
+.badge-off{background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.3);color:#fca5a5}
+.bd{padding:14px;display:flex;flex-direction:column;gap:10px}
+.sec{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 14px}
+.sec-label{font-size:10px;color:#6366f1;text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px;font-weight:600}
+.row{display:flex;align-items:center;justify-content:space-between;padding:3px 0}
+.row-label{font-size:13px;color:#c7d2fe;font-weight:500}
+.tog{position:relative;width:38px;height:20px;flex-shrink:0}
+.tog input{display:none}
+.tog-track{position:absolute;inset:0;border-radius:10px;background:rgba(255,255,255,0.15);cursor:pointer;transition:background .25s}
+.tog-track::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;background:white;border-radius:50%;transition:transform .25s}
+.tog input:checked+.tog-track{background:#4f46e5}
+.tog input:checked+.tog-track::after{transform:translateX(18px)}
+.act-grid{display:flex;flex-direction:column;gap:6px}
+.act-btn{width:100%;padding:9px 13px;border:none;border-radius:9px;background:rgba(255,255,255,0.08);color:#e0e7ff;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:9px;transition:all .18s;text-align:left;border:1px solid rgba(255,255,255,0.07)}
+.act-btn:hover{background:#4f46e5;border-color:#4f46e5;transform:translateX(2px)}
+.act-icon{font-size:15px;width:18px;text-align:center}
+.theme-dots-row{display:flex;gap:10px;padding:4px 2px 18px}
+.t-dot{width:28px;height:28px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:all .18s;flex-shrink:0;position:relative}
+.t-dot:hover{transform:scale(1.12)}
+.t-dot.cur{border-color:#818cf8;box-shadow:0 0 0 2px rgba(129,140,248,.4)}
+.t-dot[data-theme="default"]{background:linear-gradient(135deg,#f1f5f9,#fff)}
+.t-dot[data-theme="dark"]{background:linear-gradient(135deg,#111827,#1f2937)}
+.t-dot[data-theme="eye"]{background:linear-gradient(135deg,#d9eed5,#f0f7ee)}
+.t-dot[data-theme="ebook"]{background:linear-gradient(135deg,#fdf6e3,#f5e6d0)}
+.t-dot[data-theme="night"]{background:linear-gradient(135deg,#0d1117,#161b22)}
+.t-dot-label{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:#94a3b8;white-space:nowrap}
+.ft{padding:10px 14px;border-top:1px solid rgba(255,255,255,0.07);font-size:10px;color:#4b5563;text-align:center}
+</style>
+</head>
+<body>
+<div class="hd">
+  <div class="logo"><img src="../icons/icon48.png" alt="QTline"/></div>
+  <div class="hd-info"><div class="hd-name">QTline</div><div class="hd-sub">Qwen 对话增强插件</div></div>
+  <div id="status-badge" class="badge">运行中</div>
+</div>
+<div class="bd" id="main-body">
+  <div class="sec">
+    <div class="sec-label">功能开关</div>
+    <div class="row">
+      <span class="row-label">📍 时间轴导航</span>
+      <label class="tog"><input type="checkbox" id="tog-timeline" checked/><div class="tog-track"></div></label>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <span class="row-label">🎯 悬浮球</span>
+      <label class="tog"><input type="checkbox" id="tog-float" checked/><div class="tog-track"></div></label>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">快速切换主题</div>
+    <div class="theme-dots-row">
+      <div class="t-dot" data-theme="default" title="默认"><span class="t-dot-label">默认</span></div>
+      <div class="t-dot" data-theme="dark"    title="暗色"><span class="t-dot-label">暗色</span></div>
+      <div class="t-dot" data-theme="eye"     title="护眼"><span class="t-dot-label">护眼</span></div>
+      <div class="t-dot" data-theme="ebook"   title="阅读"><span class="t-dot-label">阅读</span></div>
+      <div class="t-dot" data-theme="night"   title="午夜"><span class="t-dot-label">午夜</span></div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">快捷功能</div>
+    <div class="act-grid">
+      <button class="act-btn" id="btn-prompts"><span class="act-icon">💡</span>打开提示词库</button>
+      <button class="act-btn" id="btn-delete"><span class="act-icon">🗑️</span>批量删除对话</button>
+      <button class="act-btn" id="btn-reset"><span class="act-icon">🔄</span>重置页面样式</button>
+    </div>
+  </div>
+</div>
+<div class="ft">v1.0.0 · 仅在 chat.qwen.ai 生效</div>
+<script src="../scripts/popup.js"></script>
+</body>
+</html>

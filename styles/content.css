@@ -1,0 +1,261 @@
+/* ============================================================
+   QTline v1.0.0 - Content Styles
+   All UI scoped under #qtline-root
+   ============================================================ */
+
+#qtline-root * {
+  box-sizing: border-box !important;
+  font-family: -apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+.qt-timeline {
+  position: fixed !important; right: 8px !important; top: 50% !important;
+  transform: translateY(-50%) !important; width: 30px !important;
+  height: 72vh !important; max-height: 560px !important; min-height: 200px !important;
+  z-index: 2147483000 !important; display: flex !important; flex-direction: column !important;
+  align-items: center !important; gap: 6px !important; pointer-events: auto !important;
+}
+.qt-timeline-tabs { display: flex !important; flex-direction: column !important; gap: 4px !important; align-items: center !important; }
+.qt-tab {
+  width: 22px !important; height: 22px !important; border: none !important;
+  background: rgba(255,255,255,0.92) !important; border-radius: 50% !important;
+  cursor: pointer !important; display: flex !important; align-items: center !important;
+  justify-content: center !important; padding: 3px !important; transition: all 0.2s !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.18) !important; color: #94a3b8 !important;
+}
+.qt-tab svg { width: 12px !important; height: 12px !important; }
+.qt-tab:hover, .qt-tab.active { background: #4f46e5 !important; color: white !important; box-shadow: 0 2px 10px rgba(79,70,229,0.45) !important; }
+.qt-track-wrap { flex: 1 !important; width: 100% !important; position: relative !important; display: flex !important; justify-content: center !important; }
+.qt-track-line {
+  position: absolute !important; width: 2px !important; top: 0 !important; bottom: 0 !important;
+  left: 50% !important; transform: translateX(-50%) !important;
+  background: linear-gradient(to bottom,transparent,rgba(79,70,229,0.35) 8%,rgba(79,70,229,0.35) 92%,transparent) !important;
+  border-radius: 1px !important;
+}
+.qt-dots { position: absolute !important; inset: 0 !important; }
+.qt-dot {
+  position: absolute !important; left: 50% !important; transform: translate(-50%,-50%) !important;
+  width: 9px !important; height: 9px !important; border-radius: 50% !important;
+  background: #4f46e5 !important; border: 2px solid rgba(255,255,255,0.95) !important;
+  box-shadow: 0 0 0 1.5px rgba(79,70,229,0.4),0 1px 4px rgba(0,0,0,0.2) !important;
+  cursor: pointer !important; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1) !important; z-index: 1 !important;
+}
+.qt-dot:hover {
+  transform: translate(-50%,-50%) scale(1.9) !important; background: #3730a3 !important;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.25),0 2px 10px rgba(79,70,229,0.45) !important; z-index: 2 !important;
+}
+.qt-dot-file { background: #059669 !important; box-shadow: 0 0 0 1.5px rgba(5,150,105,0.4) !important; }
+.qt-dot-file:hover { background: #047857 !important; box-shadow: 0 0 0 3px rgba(5,150,105,0.25) !important; }
+.qt-no-item {
+  font-size: 9px !important; color: #b0b8c8 !important; writing-mode: vertical-rl !important;
+  position: absolute !important; top: 50% !important; left: 50% !important;
+  transform: translate(-50%,-50%) !important; white-space: nowrap !important;
+}
+
+.qt-tip {
+  position: fixed !important; right: 48px !important;
+  background: rgba(10,10,25,0.96) !important; backdrop-filter: blur(14px) !important;
+  color: #e2e8f0 !important; border-radius: 10px !important; padding: 10px 14px !important;
+  max-width: 250px !important; min-width: 160px !important; font-size: 12px !important;
+  z-index: 2147483647 !important; pointer-events: none !important;
+  opacity: 0 !important; transform: translateX(8px) !important;
+  transition: opacity 0.18s,transform 0.18s !important;
+  border: 1px solid rgba(79,70,229,0.35) !important; box-shadow: 0 8px 28px rgba(0,0,0,0.35) !important;
+}
+.qt-tip.visible { opacity: 1 !important; transform: translateX(0) !important; }
+.qt-tip-meta { font-size: 10px !important; color: #64748b !important; margin-bottom: 5px !important; }
+.qt-tip-body { color: #cbd5e1 !important; word-break: break-all !important; }
+
+.qt-ball {
+  position: fixed !important; bottom: 28px !important; right: 28px !important;
+  width: 46px !important; height: 46px !important; border-radius: 50% !important;
+  background: linear-gradient(135deg,#4f46e5,#7c3aed) !important; color: white !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  cursor: grab !important; z-index: 2147483600 !important;
+  box-shadow: 0 4px 20px rgba(79,70,229,0.45),0 2px 8px rgba(0,0,0,0.2) !important;
+  transition: box-shadow 0.25s,transform 0.25s !important;
+  border: 2px solid rgba(255,255,255,0.28) !important; user-select: none !important;
+}
+.qt-ball:hover { box-shadow: 0 6px 28px rgba(79,70,229,0.6) !important; transform: scale(1.08) !important; }
+.qt-ball:active { cursor: grabbing !important; }
+.qt-ball svg { width: 22px !important; height: 22px !important; pointer-events: none !important; }
+
+.qt-menu {
+  position: fixed !important; bottom: 82px !important; right: 22px !important;
+  display: flex !important; flex-direction: column !important; gap: 7px !important;
+  z-index: 2147483599 !important; opacity: 0 !important;
+  transform: translateY(12px) scale(0.92) !important; pointer-events: none !important;
+  transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1) !important; transform-origin: bottom right !important;
+}
+.qt-menu.visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; pointer-events: auto !important; }
+.qt-menu-item {
+  display: flex !important; align-items: center !important; gap: 9px !important;
+  background: rgba(255,255,255,0.97) !important; backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(79,70,229,0.15) !important; border-radius: 22px !important;
+  padding: 8px 18px 8px 13px !important; cursor: pointer !important;
+  font-size: 13px !important; font-weight: 500 !important; color: #1e1b4b !important;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.1) !important; white-space: nowrap !important;
+  align-self: flex-end !important; transition: all 0.18s !important;
+}
+.qt-menu-item:hover { background: #4f46e5 !important; color: white !important; border-color: transparent !important; transform: translateX(-5px) !important; }
+.qt-micon { font-size: 15px !important; }
+
+.qt-panel {
+  position: fixed !important; z-index: 2147483500 !important;
+  background: rgba(255,255,255,0.98) !important; backdrop-filter: blur(20px) !important;
+  border-radius: 16px !important; box-shadow: 0 20px 60px rgba(0,0,0,0.16),0 4px 16px rgba(79,70,229,0.12) !important;
+  border: 1px solid rgba(79,70,229,0.1) !important; opacity: 0 !important;
+  transform: scale(0.96) translateY(10px) !important; pointer-events: none !important;
+  transition: all 0.24s cubic-bezier(0.34,1.56,0.64,1) !important; overflow: hidden !important;
+  bottom: 84px !important; right: 82px !important;
+}
+.qt-panel.visible { opacity: 1 !important; transform: scale(1) translateY(0) !important; pointer-events: auto !important; }
+#qt-panel-prompts { width: 380px !important; max-height: 72vh !important; display: flex !important; flex-direction: column !important; }
+#qt-panel-delete  { width: 360px !important; max-height: 65vh !important; }
+#qt-panel-theme   { width: 300px !important; }
+.qt-panel-hd {
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  padding: 14px 18px 12px !important; border-bottom: 1px solid rgba(0,0,0,0.07) !important;
+  font-size: 14px !important; font-weight: 600 !important; color: #1e1b4b !important; flex-shrink: 0 !important;
+}
+.qt-ico-btn {
+  width: 28px !important; height: 28px !important; border: none !important; background: none !important;
+  border-radius: 6px !important; cursor: pointer !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 13px !important; color: #64748b !important; transition: all 0.15s !important;
+}
+.qt-ico-btn svg { width: 14px !important; height: 14px !important; }
+.qt-ico-btn:hover { background: rgba(79,70,229,0.1) !important; color: #4f46e5 !important; }
+.qt-tag-bar {
+  display: flex !important; flex-wrap: wrap !important; gap: 5px !important;
+  padding: 9px 16px !important; border-bottom: 1px solid rgba(0,0,0,0.05) !important; flex-shrink: 0 !important;
+}
+.qt-tag-btn {
+  padding: 3px 11px !important; border-radius: 12px !important; font-size: 12px !important;
+  border: 1px solid rgba(79,70,229,0.2) !important; background: transparent !important;
+  color: #64748b !important; cursor: pointer !important; transition: all 0.15s !important;
+}
+.qt-tag-btn:hover,.qt-tag-btn.active { background: #4f46e5 !important; color: white !important; border-color: #4f46e5 !important; }
+.qt-prompt-list {
+  flex: 1 !important; overflow-y: auto !important; padding: 12px 14px !important;
+  display: flex !important; flex-direction: column !important; gap: 9px !important;
+}
+.qt-prompt-list::-webkit-scrollbar { width: 4px !important; }
+.qt-prompt-list::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15) !important; border-radius: 2px !important; }
+.qt-prompt-card {
+  background: #f8f9ff !important; border: 1px solid rgba(79,70,229,0.1) !important;
+  border-radius: 10px !important; padding: 11px 13px !important; transition: all 0.18s !important;
+}
+.qt-prompt-card:hover { border-color: rgba(79,70,229,0.3) !important; box-shadow: 0 2px 14px rgba(79,70,229,0.09) !important; }
+.qt-card-hd { display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 5px !important; }
+.qt-card-title { font-size: 13px !important; font-weight: 600 !important; color: #1e1b4b !important; }
+.qt-card-acts { display: flex !important; gap: 2px !important; opacity: 0 !important; transition: opacity 0.15s !important; }
+.qt-prompt-card:hover .qt-card-acts { opacity: 1 !important; }
+.qt-card-preview { font-size: 12px !important; color: #64748b !important; margin-bottom: 7px !important; }
+.qt-card-tags { display: flex !important; flex-wrap: wrap !important; gap: 4px !important; margin-bottom: 8px !important; }
+.qt-chip { font-size: 11px !important; padding: 2px 9px !important; background: rgba(79,70,229,0.1) !important; color: #4f46e5 !important; border-radius: 8px !important; }
+.qt-chip-rm { cursor: pointer !important; }
+.qt-rm { margin-left: 3px !important; opacity: 0.6 !important; }
+.qt-use-btn {
+  width: 100% !important; padding: 7px !important;
+  background: linear-gradient(135deg,#4f46e5,#7c3aed) !important; color: white !important;
+  border: none !important; border-radius: 8px !important; font-size: 12px !important;
+  font-weight: 500 !important; cursor: pointer !important; transition: all 0.2s !important;
+}
+.qt-use-btn:hover { transform: translateY(-1px) !important; box-shadow: 0 4px 14px rgba(79,70,229,0.38) !important; }
+.qt-hint { font-size: 12px !important; color: #94a3b8 !important; margin-bottom: 10px !important; }
+.qt-conv-list { display: flex !important; flex-direction: column !important; gap: 3px !important; max-height: 180px !important; overflow-y: auto !important; margin-bottom: 8px !important; }
+.qt-conv-row label { display: flex !important; align-items: center !important; gap: 8px !important; padding: 5px 8px !important; border-radius: 6px !important; font-size: 13px !important; color: #374151 !important; cursor: pointer !important; }
+.qt-conv-row label:hover { background: rgba(79,70,229,0.06) !important; }
+.qt-check { accent-color: #4f46e5 !important; }
+.qt-conv-actions { display: flex !important; gap: 8px !important; justify-content: flex-end !important; margin-top: 8px !important; }
+.qt-btn { padding: 7px 16px !important; border-radius: 8px !important; font-size: 13px !important; font-weight: 500 !important; cursor: pointer !important; border: none !important; transition: all 0.18s !important; }
+.qt-btn-primary { background: #4f46e5 !important; color: white !important; }
+.qt-btn-primary:hover { background: #3730a3 !important; }
+.qt-btn-outline { background: transparent !important; border: 1px solid rgba(79,70,229,0.3) !important; color: #4f46e5 !important; }
+.qt-btn-outline:hover { background: rgba(79,70,229,0.05) !important; }
+.qt-btn-danger { background: #ef4444 !important; color: white !important; }
+.qt-btn-danger:hover { background: #dc2626 !important; }
+.qt-theme-grid { display: grid !important; grid-template-columns: repeat(5,1fr) !important; gap: 10px !important; padding: 16px !important; }
+.qt-theme-tile { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 5px !important; cursor: pointer !important; border-radius: 10px !important; padding: 7px 4px !important; transition: all 0.18s !important; border: 2px solid transparent !important; }
+.qt-theme-tile:hover { background: rgba(79,70,229,0.07) !important; }
+.qt-theme-tile.active { border-color: #4f46e5 !important; background: rgba(79,70,229,0.07) !important; }
+.qt-tile-sw { width: 38px !important; height: 26px !important; border-radius: 6px !important; border: 1px solid rgba(0,0,0,0.1) !important; }
+.sw-default { background: linear-gradient(135deg,#f9fafb,#fff) !important; }
+.sw-dark    { background: linear-gradient(135deg,#111827,#1f2937) !important; }
+.sw-eye     { background: linear-gradient(135deg,#d9eed5,#f0f7ee) !important; }
+.sw-ebook   { background: linear-gradient(135deg,#fdf6e3,#f5e6d0) !important; }
+.sw-night   { background: linear-gradient(135deg,#0d1117,#161b22) !important; }
+.qt-theme-tile span { font-size: 10px !important; color: #64748b !important; font-weight: 500 !important; }
+.qt-overlay {
+  position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.42) !important;
+  backdrop-filter: blur(5px) !important; z-index: 2147483640 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  opacity: 0 !important; pointer-events: none !important; transition: opacity 0.2s !important;
+}
+.qt-overlay.visible { opacity: 1 !important; pointer-events: auto !important; }
+.qt-modal {
+  background: white !important; border-radius: 16px !important; padding: 22px !important;
+  width: 440px !important; max-width: 90vw !important; display: flex !important; flex-direction: column !important;
+  gap: 13px !important; box-shadow: 0 24px 64px rgba(0,0,0,0.22) !important;
+  transform: scale(0.95) !important; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+.qt-overlay.visible .qt-modal { transform: scale(1) !important; }
+.qt-input, .qt-textarea {
+  width: 100% !important; padding: 9px 13px !important; border: 1px solid rgba(0,0,0,0.14) !important;
+  border-radius: 8px !important; font-size: 13px !important; color: #1e1b4b !important;
+  outline: none !important; background: #fafafa !important; transition: border-color 0.15s !important;
+}
+.qt-input:focus, .qt-textarea:focus { border-color: #4f46e5 !important; background: white !important; box-shadow: 0 0 0 3px rgba(79,70,229,0.1) !important; }
+.qt-textarea { min-height: 110px !important; resize: vertical !important; font-family: inherit !important; }
+.qt-modal-tag-row { display: flex !important; flex-direction: column !important; gap: 7px !important; }
+#qt-edit-tags { display: flex !important; flex-wrap: wrap !important; gap: 5px !important; min-height: 22px !important; }
+.qt-modal-foot { display: flex !important; justify-content: flex-end !important; gap: 8px !important; }
+.qt-notif {
+  position: fixed !important; top: 18px !important; left: 50% !important;
+  transform: translateX(-50%) translateY(-14px) !important;
+  background: rgba(10,10,25,0.92) !important; color: white !important;
+  padding: 9px 22px !important; border-radius: 20px !important; font-size: 13px !important;
+  z-index: 2147483647 !important; opacity: 0 !important; pointer-events: none !important;
+  transition: all 0.28s !important; backdrop-filter: blur(10px) !important;
+}
+.qt-notif.visible { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+.qt-empty { font-size: 12px !important; color: #94a3b8 !important; text-align: center !important; padding: 18px !important; }
+.qt-flash {
+  outline: 2.5px solid #4f46e5 !important; outline-offset: 4px !important;
+  border-radius: 6px !important; animation: qt-flash-anim 2s ease-out forwards !important;
+}
+@keyframes qt-flash-anim {
+  0%  { outline-color: #4f46e5; }
+  60% { outline-color: rgba(79,70,229,0.4); }
+  100%{ outline-color: transparent; }
+}
+/* ---- THEME PROTECTION ---- */
+[data-qttheme] #qtline-root { filter: none !important; isolation: isolate !important; }
+[data-qttheme] .qt-ball { background: linear-gradient(135deg,#4f46e5,#7c3aed) !important; color: white !important; }
+[data-qttheme] .qt-menu-item { background: rgba(255,255,255,0.97) !important; color: #1e1b4b !important; }
+[data-qttheme] .qt-menu-item:hover { background: #4f46e5 !important; color: white !important; }
+[data-qttheme] .qt-panel { background: rgba(255,255,255,0.98) !important; }
+[data-qttheme] .qt-panel-hd { color: #1e1b4b !important; border-bottom-color: rgba(0,0,0,0.07) !important; }
+[data-qttheme] .qt-card-title { color: #1e1b4b !important; }
+[data-qttheme] .qt-card-preview { color: #64748b !important; font-size: 12px !important; }
+[data-qttheme] .qt-modal { background: white !important; }
+[data-qttheme] .qt-tab { background: rgba(255,255,255,0.92) !important; color: #94a3b8 !important; }
+[data-qttheme] .qt-tab.active { background: #4f46e5 !important; color: white !important; }
+[data-qttheme] .qt-input,[data-qttheme] .qt-textarea { background: #fafafa !important; color: #1e1b4b !important; border-color: rgba(0,0,0,0.14) !important; font-size: 13px !important; }
+[data-qttheme] .qt-input:focus,[data-qttheme] .qt-textarea:focus { background: white !important; border-color: #4f46e5 !important; }
+[data-qttheme] .qt-notif { background: rgba(10,10,25,0.92) !important; color: white !important; }
+[data-qttheme] .qt-tip { background: rgba(10,10,25,0.96) !important; color: #e2e8f0 !important; }
+[data-qttheme] .qt-prompt-card { background: #f8f9ff !important; border-color: rgba(79,70,229,0.1) !important; }
+[data-qttheme] .qt-conv-row label { color: #374151 !important; font-size: 13px !important; }
+[data-qttheme] .qt-theme-tile span { color: #64748b !important; font-size: 10px !important; }
+[data-qttheme] .qt-btn-primary { background: #4f46e5 !important; color: white !important; }
+[data-qttheme] .qt-btn-outline { color: #4f46e5 !important; background: transparent !important; }
+[data-qttheme] .qt-btn-danger { background: #ef4444 !important; color: white !important; }
+[data-qttheme] .qt-use-btn { background: linear-gradient(135deg,#4f46e5,#7c3aed) !important; color: white !important; }
+[data-qttheme] .qt-tag-btn { color: #64748b !important; background: transparent !important; font-size: 12px !important; }
+[data-qttheme] .qt-tag-btn.active { background: #4f46e5 !important; color: white !important; }
+[data-qttheme] .qt-hint { color: #94a3b8 !important; font-size: 12px !important; }
+[data-qttheme] .qt-dot { background: #4f46e5 !important; border-color: rgba(255,255,255,0.95) !important; }
+[data-qttheme] .qt-dot-file { background: #059669 !important; }
